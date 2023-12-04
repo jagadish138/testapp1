@@ -38,8 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newapp1',
-]
+    'rest_framework',
+    'rest_framework_jwt',
 
+]
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#
+#     ],
+# }
+JWT_AUTH={
+    'JWT_ALLOW_REFRESH':True,
+    'JWT_AUTH_HEADER_PREFIX':'JWT'
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

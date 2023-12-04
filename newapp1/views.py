@@ -3,8 +3,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Employees
 from .serializers import EmployeeSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 class EmployeesView(APIView):
+    authentication_classes = [JSONWebTokenAuthentication,]
+    permission_classes = [IsAuthenticated,]
     def get(self, request,e_id=None ):
         if e_id is not None:
             try:
